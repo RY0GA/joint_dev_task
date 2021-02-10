@@ -65,8 +65,8 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-  programming_languages = %w(ruby php python javascript).map(&:capitalize)
-  upper_case_programming_languages = %w(ruby php python javascript).map(&:upcase)
+  programming_languages.map!(&:capitalize)
+  upper_case_programming_languages = programming_languages.map(&:upcase)
   # 以下は変更しないで下さい
   p programming_languages
   p upper_case_programming_languages
@@ -98,10 +98,10 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
-  flatten_sports = sports.flatten
-  sports2 = flatten_sports.uniq
+  sports.flatten!
+  sports.uniq!
 
-  sports2.each.with_index(1) do |sport, i|
+  sports.each.with_index(1) do |sport, i|
     puts "No.#{i} #{sport}"
   end
 end

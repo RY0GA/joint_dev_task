@@ -166,9 +166,11 @@ class UserQ17
   end
 
   def info
-    puts "名前：#{@name}"
-    puts "年齢：#{@age}"
-    puts "性別：#{@gender}"
+    puts <<~TEXT
+    名前：#{@name}
+    年齢：#{@age}
+    性別：#{@gender}
+    TEXT
   end
 
 end
@@ -192,10 +194,11 @@ class UserQ18
   end
 
   def introduce
-    if @age == 32
-      "こんにちは,#{@name}と申します。宜しくお願い致します。"
-    else
-      "はいさいまいど〜,#{@name}です！！"
+    case @age
+    when 0..19
+      puts "はいさいまいど〜、#{@name}です。"
+    when 20..100
+      puts "こんにちは、#{@name}と申します。"
     end
   end
 end
@@ -240,7 +243,7 @@ class Zoo
   end
 
   def info_entry_fee(user)
-    fees = case user.age
+    fee = case user.age
       when 0..5
         @entry_fee[:infant]
       when 6..12
@@ -250,7 +253,7 @@ class Zoo
       when 65..120
         @entry_fee[:senior]
     end
-      puts "#{user.name}さんの入場料金は#{fees}円です"
+      puts "#{user.name}さんの入場料金は#{fee}円です"
   end
 end
 

@@ -98,8 +98,7 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
-  sports.flatten!
-  sports.uniq!
+  sports.flatten!.uniq!
 
   sports.each.with_index(1) do |sport, i|
     puts "No.#{i} #{sport}"
@@ -119,7 +118,7 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-  user_data.update(age: 32, address: "沖縄")
+  user_data.update(update_data)
 
   puts user_data
 end
@@ -137,10 +136,8 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-  amswer1 = data1.include?(:age) ? "OK" : "NG"
-    puts answer1
-  answer2 = data2.include?(:age) ? "OK" : "NG"
-    puts answer2
+  puts data1.include?(:age) ? "OK" : "NG"
+  puts data2.include?(:age) ? "OK" : "NG"
 end
 
 def q16
